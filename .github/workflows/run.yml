@@ -1,0 +1,19 @@
+name: Docker Build and Run
+
+on:
+  push:
+    branches:
+      - main  # Substitua 'main' pelo nome da branch que você deseja acionar o workflow
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu:18.04
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build and Run Docker Container
+      run: |
+        docker build -t dk1 .
+        docker run -d dk1 
